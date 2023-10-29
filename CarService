@@ -1,0 +1,58 @@
+class CarPart:
+    def __init__(self, id, name, description, manufacturer, price):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.manufacturer = manufacturer
+        self.price = price
+        self.modelCompatible = []
+
+class ServiceCriteria:
+    def __init__(self, id, name, description, price, serviceInterval):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.price = price
+        self.serviceInterval = serviceInterval
+
+class CarModel:
+    def __init__(self, id, name, description, basePrice):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.basePrice = basePrice
+        self.parts = []
+
+class ServiceType:
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+
+class Service:
+    def __init__(self, id, carModel, serviceCriteria, serviceType, description, cost):
+        self.id = id
+        self.carModel = carModel
+        self.serviceCriteria = serviceCriteria
+        self.serviceType = serviceType
+        self.description = description
+        self.cost = cost
+
+part1 = CarPart(1, "Engine", "High-performance engine", "ABC Motors", 1500.00)
+part2 = CarPart(2, "Battery", "Long-lasting battery", "XYZ Electronics", 200.00)
+
+
+criteria1 = ServiceCriteria(1, "Oil Change", "Regular oil change service", 50.00, 3000)
+criteria2 = ServiceCriteria(2, "Brake Inspection", "Brake system inspection", 80.00, 5000)
+
+
+model1 = CarModel(1, "Model X", "Luxury Sedan", 35000.00)
+model1.parts.append(part1)
+model1.parts.append(part2)
+
+
+type1 = ServiceType(1, "Maintenance")
+type2 = ServiceType(2, "Repair")
+
+
+service1 = Service(1, model1, criteria1, type1, "Regular maintenance", 100.00)
+service2 = Service(2, model1, criteria2, type2, "Brake system repair", 150.00)
